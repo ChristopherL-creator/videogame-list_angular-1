@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    height: 100vh;
+    background: linear-gradient(297deg, rgba(2,0,36,1) 0%, rgba(72,4,67,1) 16%, rgba(7,7,99,1) 27%, rgba(8,213,23,1) 47%, rgba(7,53,150,1) 58%, rgba(6,75,164,1) 66%, rgba(5,106,185,1) 77%, rgba(3,147,212,1) 88%, rgba(0,212,255,1) 100%); 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.game-card{
+    -webkit-box-shadow: 7px -5px 10px 0px #4B0082, 11px -9px 10px 0px #0000FF, 16px -14px 10px 0px #00FF00, 20px -17px 10px 0px #FFFF00, 24px -19px 10px 0px #FF7F00, 27px -23px 10px 0px #FF0000, 5px 5px 17px 5px rgba(143,127,255,0); 
+    box-shadow: 7px -5px 10px 0px #4B0082, 11px -9px 10px 0px #0000FF, 16px -14px 10px 0px #00FF00, 20px -17px 10px 0px #FFFF00, 24px -19px 10px 0px #FF7F00, 27px -23px 10px 0px #FF0000, 5px 5px 17px 5px rgba(143,127,255,0);
+    background: #9400D3;
+}
