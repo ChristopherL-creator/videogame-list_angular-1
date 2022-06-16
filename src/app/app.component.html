@@ -1,11 +1,15 @@
 <h1>{{title}}</h1>
 
-<div class="game-card" *ngFor="let game of videoGamesArray"> 
+<!-- <div class="game-card" *ngFor="let game of videoGamesArray"> 
   <span>Title: {{game.name}}</span> 
   <span>Publication date: {{game.publicationDate}}</span> 
   <span>Genre: {{game.genre}}</span> 
   <span>Developer(s): {{game.softwareHouse}}</span> 
   
-</div>
+</div> --> 
 
-<router-outlet></router-outlet>
+<app-videogame-list [videogames]="videoGamesArray"></app-videogame-list> 
+
+<button (click)="orderByYear()">Year</button>
+<button (click)="orderByName()">Name</button>
+<!-- <router-outlet></router-outlet> -->
