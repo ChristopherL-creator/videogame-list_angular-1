@@ -8,9 +8,9 @@ import { VideogameClass } from 'src/app/model/videogame-class';
 })
 export class VideogameComponent implements OnInit {
 
-  @Input() game?: VideogameClass;
+  @Input() game?: VideogameClass; // se c'è un name, creo una nuova videogameclass?
 
-  constructor() { 
+  constructor() {
 
   }
 
