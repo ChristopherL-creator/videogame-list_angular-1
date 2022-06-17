@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GAMES } from './model/mock-videogame';
+import { GAMES, GAMES2 } from './model/mock-videogame';
 import { VideogameClass } from './model/videogame-class';
 
 @Component({
@@ -19,9 +19,9 @@ export class AppComponent implements OnInit{
       
   }
 
- 
-
-  
+  toBoomerMode(): void { 
+    this.videoGamesArray = GAMES2;
+  }
 
   orderByYear(){
     this.videoGamesArray.sort((obj1, obj2) => {

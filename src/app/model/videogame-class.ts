@@ -1,27 +1,45 @@
 export class VideogameClass { 
 
-name: string; 
-publicationDate: number; 
-genreGame: VideogameGenre; 
-softwareHouse: string[]; 
+    name: string; 
+    publicationDate: number; 
+    genreGame: VideogameGenre; 
+    softwareHouse: string[]; 
 
-constructor(name: string, publicationDate: number, genreGame: VideogameGenre, softwareHouse: string[]){ 
-    this.name = name; 
-    this.publicationDate = publicationDate; 
-    this.genreGame = genreGame; 
-    this.softwareHouse = softwareHouse; 
+    constructor(name: string, publicationDate: number, genreGame: VideogameGenre, softwareHouse: string[]){ 
+        this.name = name; 
+        this.publicationDate = publicationDate; 
+        this.genreGame = genreGame; 
+        this.softwareHouse = softwareHouse; 
+    } 
+
+    get genre(): string{ 
+        return getGenreString(this.genreGame);
+    } 
+
+    static compareByName(a: VideogameClass, b: VideogameClass){ 
+        return a.name.localeCompare(b.name);
+    } 
+
+    static compareByDate(a: VideogameClass, b: VideogameClass){ 
+        return a.publicationDate - b.publicationDate;
+    }
 } 
 
-get genre(): string{ 
-    return getGenreString(this.genreGame);
-}
-} 
 
-export enum VideogameGenre { 
-    PLATFORM = 0, 
-    FPS = 1, 
-    STRATEGY = 2, 
-    PUZZLE = 3
+
+
+
+
+
+
+export enum VideogameGenre {
+    PLATFORM = 0,
+    FPS = 1,
+    STRATEGY = 2,
+    PUZZLE = 3,
+    SPORT = 4,
+    ARCADE = 5,
+    SIMULATION = 6
 } 
 
 export function getGenreString(genre: VideogameGenre): string{ 
@@ -35,4 +53,4 @@ export function getGenreString(genre: VideogameGenre): string{
         default: 
         return 'puzzle';
     }
-}
+} 

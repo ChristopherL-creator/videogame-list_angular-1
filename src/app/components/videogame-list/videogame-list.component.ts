@@ -17,4 +17,11 @@ export class VideogameListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  orderByName(){ 
+    this.videogames.sort(VideogameClass.compareByName);
+  } 
+
+  orderByDate(){ 
+    this.videogames.sort(VideogameClass.compareByDate);
+  }
 }
