@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { GAMES, GAMES2 } from './model/mock-videogame';
 import { VideogameClass } from './model/videogame-class';
 
@@ -20,7 +21,8 @@ export class AppComponent implements OnInit{
   }
 
   toBoomerMode(): void { 
-    this.videoGamesArray = GAMES2;
+    this.videoGamesArray = GAMES2; 
+
   }
 
   orderByYear(){
