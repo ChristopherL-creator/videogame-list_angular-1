@@ -9,19 +9,20 @@ import { VideogameClass } from './model/videogame-class';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'list-videogame'; 
-  videoGamesArray: VideogameClass[]; 
+  title = 'list-videogame';
+  videoGamesArray: VideogameClass[];
 
-  constructor(){ 
+  constructor(){
     this.videoGamesArray = GAMES;
-  } 
-
-  ngOnInit(): void {
-      
   }
 
-  toBoomerMode(): void { 
-    this.videoGamesArray = GAMES2; 
+  ngOnInit(): void {
+
+  }
+
+  toBoomerMode(): void {
+    this.videoGamesArray = GAMES2;
+    document.body.style.backgroundImage = "url('')";
 
   }
 
@@ -30,11 +31,11 @@ export class AppComponent implements OnInit{
       if (obj1.publicationDate > obj2.publicationDate) {
           return 1;
       }
-  
+
       if (obj1.publicationDate < obj2.publicationDate) {
           return -1;
       }
-  
+
       return 0;
   });
     // return this.videoGamesArray.sort(sortFunction);
@@ -45,15 +46,15 @@ export class AppComponent implements OnInit{
       if (obj1.name > obj2.name) {
           return 1;
       }
-  
+
       if (obj1.name < obj2.name) {
           return -1;
       }
-  
+
       return 0;
   });
     // return this.videoGamesArray.sort(sortFunction);
   }
-} 
+}
 
 

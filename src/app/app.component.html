@@ -1,15 +1,15 @@
 <h1>{{title}}</h1>
 
-<!-- <div class="game-card" *ngFor="let game of videoGamesArray"> 
-  <span>Title: {{game.name}}</span> 
-  <span>Publication date: {{game.publicationDate}}</span> 
-  <span>Genre: {{game.genre}}</span> 
-  <span>Developer(s): {{game.softwareHouse}}</span> 
-  
-</div> --> 
-<button (click)="toBoomerMode(); ">*#*CoFeE!!*#*</button> 
+<!-- <div class="game-card" *ngFor="let game of videoGamesArray">
+  <span>Title: {{game.name}}</span>
+  <span>Publication date: {{game.publicationDate}}</span>
+  <span>Genre: {{game.genre}}</span>
+  <span>Developer(s): {{game.softwareHouse}}</span>
 
-<app-videogame-list [videogames]="videoGamesArray"></app-videogame-list> 
+</div> -->
+<button class="boomer-button" (click)="toBoomerMode()">*#*CoFeE!!*#*</button>
+
+<app-videogame-list [videogames]="videoGamesArray"></app-videogame-list>
 
 <button (click)="orderByYear()">Year</button>
 <button (click)="orderByName()">Name</button>
