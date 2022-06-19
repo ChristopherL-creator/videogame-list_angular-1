@@ -20,10 +20,14 @@ export class AppComponent implements OnInit{
 
   }
 
-  toBoomerMode(): void {
-    this.videoGamesArray = GAMES2;
-    document.body.style.backgroundImage = "url('./components/pictures/coffee-pattern.jpg')";
 
+  toBoomerMode(): void {
+ 
+
+    const body = document.getElementById("change-body");
+
+    this.videoGamesArray = GAMES2;
+    body.style.backgroundImage="url('./components/pictures/coffee-pattern.jpg')";
   }
 
   orderByYear(){
