@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
 
   toBoomerMode(): void {
     this.videoGamesArray = GAMES2;
-    document.body.style.backgroundImage = "url('')";
+    document.body.style.backgroundImage = "url('./components/pictures/coffee-pattern.jpg')";
 
   }
 
