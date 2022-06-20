@@ -3,13 +3,15 @@ export class VideogameClass {
     name: string;
     publicationDate: number;
     genreGame: VideogameGenre;
-    softwareHouse: string[];
+    softwareHouse: string[]; 
+    isInProd: boolean;
 
-    constructor(name: string, publicationDate: number, genreGame: VideogameGenre, softwareHouse: string[]){
+    constructor(name: string, publicationDate: number, genreGame: VideogameGenre, softwareHouse: string[], isInProd: boolean = true){
         this.name = name;
         this.publicationDate = publicationDate;
         this.genreGame = genreGame;
-        this.softwareHouse = softwareHouse;
+        this.softwareHouse = softwareHouse; 
+        this.isInProd = isInProd;
     }
 
     get genre(): string{
@@ -22,6 +24,11 @@ export class VideogameClass {
 
     static compareByDate(a: VideogameClass, b: VideogameClass){
         return a.publicationDate - b.publicationDate;
+    }
+
+    static fromGameObj(dbObject: any){
+        const game = new VideogameClass(dbObject.name,dbObject.publicationDate,dbObject.genre,dbObject.softwareHouse,dbObject.isInProd )
+        return game
     }
 }
 

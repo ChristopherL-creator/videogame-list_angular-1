@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { VideogameClass } from 'src/app/model/videogame-class';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-videogame-list',
@@ -8,10 +9,11 @@ import { VideogameClass } from 'src/app/model/videogame-class';
 })
 export class VideogameListComponent implements OnInit {
 
-  @Input() videogames: VideogameClass[]; 
-
-  constructor() { 
-    this.videogames = [];
+  // @Input() videogames: VideogameClass[]; 
+  videogames: VideogameClass[] = []
+  constructor(private DataServ: DataService) { 
+    // this.videogames = DataService;
+    
   }
 
   ngOnInit(): void {

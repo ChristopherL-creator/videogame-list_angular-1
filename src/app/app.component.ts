@@ -27,7 +27,12 @@ export class AppComponent implements OnInit{
     const body = document.getElementById("change-body");
 
     this.videoGamesArray = GAMES2;
-    body.style.backgroundImage="url('./components/pictures/coffee-pattern.jpg')";
+
+    //if(body){
+      body!.style.backgroundImage="url('./assets/pictures/coffee-pattern.jpg')";
+    //}
+
+
   }
 
   orderByYear(){

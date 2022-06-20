@@ -15,6 +15,10 @@ export class VideogameComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  } 
+
+  isOutOfProd(){ 
+    
   }
 
 }
