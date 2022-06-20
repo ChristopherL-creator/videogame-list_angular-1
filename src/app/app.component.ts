@@ -22,20 +22,20 @@ export class AppComponent implements OnInit{
 
 
   toBoomerMode(): void {
-
-
     const body = document.getElementById("change-body");
 
     this.videoGamesArray = GAMES2;
-
     //if(body){
       body!.style.backgroundImage="url('./assets/pictures/coffee-pattern.jpg')";
       body!.style.backgroundRepeat="repeat";
 
+
     //}
-
-
   }
+
+  changeGameCard(){
+    return this.changeCard()
+  };
 
   orderByYear(){
     this.videoGamesArray.sort((obj1, obj2) => {
