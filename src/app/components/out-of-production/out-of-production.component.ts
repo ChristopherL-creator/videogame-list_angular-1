@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { VideogameClass } from 'src/app/model/videogame-class';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-out-of-production',
@@ -8,20 +9,28 @@ import { VideogameClass } from 'src/app/model/videogame-class';
 })
 export class OutOfProductionComponent implements OnInit {
 
-  @Input() videogames: VideogameClass[]; 
+  videogames: VideogameClass[] = [];
 
-  constructor() { 
-    this.videogames = [];
+  constructor(private dataServ: DataService) {
+    this.videogames = dataServ.getOutOfProd();
   }
 
   ngOnInit(): void {
   }
 
-  orderByName(){ 
-    this.videogames.sort(VideogameClass.compareByName);
-  } 
+  manageGameEmission(game: VideogameClass){
+    this.refreshArray();
+  }
 
-  orderByDate(){ 
+  refreshArray(){
+    this.videogames = this.dataServ.getOutOfProd();
+  }
+
+  orderByName(){
+    this.videogames.sort(VideogameClass.compareByName);
+  }
+
+  orderByDate(){
     this.videogames.sort(VideogameClass.compareByDate);
   }
 }

@@ -1,6 +1,11 @@
-<div class="container">  
-    <button (click)="orderByName()">Ordina per nome</button> 
+<div class="container">
+    <button (click)="orderByName()">Ordina per nome</button>
     <button (click)="orderByDate()">Ordina per data</button>
-    <app-videogame *ngFor="let game of videogames" [game]="game"></app-videogame>
+    <button (click)="refreshArray()">Refresh</button>
+    <app-videogame
+    *ngFor="let game of videogames"
+    [game]="game"
+    (onGameOutOfProd)="manageGameEmission($event)">
+    </app-videogame>
     <!-- ?? -->
 </div>

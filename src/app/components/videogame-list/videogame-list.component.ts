@@ -9,21 +9,31 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class VideogameListComponent implements OnInit {
 
-  // @Input() videogames: VideogameClass[]; 
-  videogames: VideogameClass[] = []
-  constructor(private DataServ: DataService) { 
+  // @Input() videogames: VideogameClass[];
+  videogames: VideogameClass[] = [];
+
+  constructor(private dataServ: DataService) {
+    this.videogames = dataServ.getInProd();
     // this.videogames = DataService;
-    
+
+  }
+
+  refreshArray(){
+    this.videogames = this.dataServ.getInProd();
   }
 
   ngOnInit(): void {
   }
 
-  orderByName(){ 
-    this.videogames.sort(VideogameClass.compareByName);
-  } 
+  manageGameEmission(game: VideogameClass){
+    this.refreshArray();
+  }
 
-  orderByDate(){ 
+  orderByName(){
+    this.videogames.sort(VideogameClass.compareByName);
+  }
+
+  orderByDate(){
     this.videogames.sort(VideogameClass.compareByDate);
   }
 }

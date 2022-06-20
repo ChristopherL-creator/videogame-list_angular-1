@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
 
 
   toBoomerMode(): void {
- 
+
 
     const body = document.getElementById("change-body");
 
@@ -30,6 +30,8 @@ export class AppComponent implements OnInit{
 
     //if(body){
       body!.style.backgroundImage="url('./assets/pictures/coffee-pattern.jpg')";
+      body!.style.backgroundRepeat="repeat";
+
     //}
 
 

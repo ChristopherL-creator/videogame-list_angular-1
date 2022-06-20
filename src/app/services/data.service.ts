@@ -6,20 +6,27 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class DataService {
-  gameArry: VideogameClass[] = []
-  constructor(private apiServ: ApiService) { 
-    this.apiServ. getTodosFromDb().subscribe({
-      next: result =>this.gameArry = result,
+
+  gamesArray: VideogameClass[] = [];
+
+  constructor(private apiServ: ApiService) {
+    this.apiServ.getTodosFromDb().subscribe({
+      next: result => this.gamesArray = result,
       error: err => console.log(err)
     })
   }
 
-  getInProd(){ 
-    const tempGames = []; 
-    
-  } 
+  getInProd(){
+    const tempGames = [];
+    for (const game of this.gamesArray) {
+      if (game.isInProd !== false) {
+        tempGames.push(game);
+      }
+    }
+    return tempGames;
+  }
 
-  getOutOfProd(){ 
-
+  getOutOfProd(){
+    return this.gamesArray.filter(game => game.isInProd === false);
   }
 }
