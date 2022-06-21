@@ -4,4 +4,5 @@
     <span>Genre: {{game.genre}}</span>
     <span>Developer(s): {{game.softwareHouse}}</span>
     <button *ngIf="game.isInProd" (click)="isOutOfProd()">Out of Production</button>
+    <button (click)="gameDeleted()">Elimina</button>
 </div>

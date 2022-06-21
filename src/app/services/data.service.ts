@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, map, Observable, pipe } from 'rxjs';
 import { VideogameClass } from '../model/videogame-class';
 import { ApiService } from './api.service';
 
@@ -7,26 +8,35 @@ import { ApiService } from './api.service';
 })
 export class DataService {
 
-  gamesArray: VideogameClass[] = [];
+  gamesArray: BehaviorSubject<VideogameClass[]> = new BehaviorSubject<VideogameClass[]>([]);
 
   constructor(private apiServ: ApiService) {
-    this.apiServ.getTodosFromDb().subscribe({
-      next: result => this.gamesArray = result,
+    this.apiServ.getGamesFromDb().subscribe({
+      next: result => this.gamesArray.next(result),
       error: err => console.log(err)
-    })
+    });
   }
 
-  getInProd(){
-    const tempGames = [];
-    for (const game of this.gamesArray) {
-      if (game.isInProd !== false) {
-        tempGames.push(game);
-      }
-    }
-    return tempGames;
+  getInProd(): Observable<VideogameClass[]>{
+    return this.gamesArray.pipe(
+      map(array => array.filter(game => game.isInProd === true))
+    );
+
   }
 
   getOutOfProd(){
-    return this.gamesArray.filter(game => game.isInProd === false);
+    return this.gamesArray.pipe(
+      map(array => array.filter(game => game.isInProd === false))
+    );
+  }
+
+  refreshArray(){
+    const newArray = [...this.gamesArray.value];
+    this.gamesArray.next(newArray);
+  }
+
+  removeGames(game: VideogameClass): void{
+    const newArray = this.gamesArray.value.filter(g => g !== game);
+    this.gamesArray.next(newArray);
   }
 }

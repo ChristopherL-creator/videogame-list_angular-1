@@ -9,11 +9,12 @@ import { VideogameClass } from './model/videogame-class';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+
   title = 'list-videogame';
-  videoGamesArray: VideogameClass[];
+  // videoGamesArray: VideogameClass[];
 
   constructor(){
-    this.videoGamesArray = GAMES;
+    // this.videoGamesArray = GAMES;
   }
 
   ngOnInit(): void {
@@ -21,51 +22,51 @@ export class AppComponent implements OnInit{
   }
 
 
-  toBoomerMode(): void {
-    const body = document.getElementById("change-body");
+  // toBoomerMode(): void {
+  //   const body = document.getElementById("change-body");
 
-    this.videoGamesArray = GAMES2;
-    //if(body){
-      body!.style.backgroundImage="url('./assets/pictures/coffee-pattern.jpg')";
-      body!.style.backgroundRepeat="repeat";
+  //   this.videoGamesArray = GAMES2;
+  //   //if(body){
+  //     body!.style.backgroundImage="url('./assets/pictures/coffee-pattern.jpg')";
+  //     body!.style.backgroundRepeat="repeat";
 
 
-    //}
-  }
+  //   //}
+  // }
 
   changeCard(){
 
   };
 
-  orderByYear(){
-    this.videoGamesArray.sort((obj1, obj2) => {
-      if (obj1.publicationDate > obj2.publicationDate) {
-          return 1;
-      }
+  // orderByYear(){
+  //   this.videoGamesArray.sort((obj1, obj2) => {
+  //     if (obj1.publicationDate > obj2.publicationDate) {
+  //         return 1;
+  //     }
 
-      if (obj1.publicationDate < obj2.publicationDate) {
-          return -1;
-      }
+  //     if (obj1.publicationDate < obj2.publicationDate) {
+  //         return -1;
+  //     }
 
-      return 0;
-  });
-    // return this.videoGamesArray.sort(sortFunction);
-  }
+  //     return 0;
+  // });
+  //   // return this.videoGamesArray.sort(sortFunction);
+  // }
 
-  orderByName(){
-    this.videoGamesArray.sort((obj1, obj2) => {
-      if (obj1.name > obj2.name) {
-          return 1;
-      }
+  // orderByName(){
+  //   this.videoGamesArray.sort((obj1, obj2) => {
+  //     if (obj1.name > obj2.name) {
+  //         return 1;
+  //     }
 
-      if (obj1.name < obj2.name) {
-          return -1;
-      }
+  //     if (obj1.name < obj2.name) {
+  //         return -1;
+  //     }
 
-      return 0;
-  });
-    // return this.videoGamesArray.sort(sortFunction);
-  }
+  //     return 0;
+  // });
+  //   // return this.videoGamesArray.sort(sortFunction);
+  // }
 }
 
 

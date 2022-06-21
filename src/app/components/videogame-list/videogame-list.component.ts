@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { VideogameClass } from 'src/app/model/videogame-class';
+import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -12,21 +13,26 @@ export class VideogameListComponent implements OnInit {
   // @Input() videogames: VideogameClass[];
   videogames: VideogameClass[] = [];
 
-  constructor(private dataServ: DataService) {
-    this.videogames = dataServ.getInProd();
-    // this.videogames = DataService;
-
+  constructor(private dataServ: DataService, private apiServ: ApiService) {
+    dataServ.getInProd().subscribe({
+      next: games => this.videogames = games,
+      error: err => console.log(err)
+    });
   }
 
   refreshArray(){
-    this.videogames = this.dataServ.getInProd();
+    // this.videogames = this.dataServ.getInProd();
   }
 
   ngOnInit(): void {
   }
 
+  // manageGameDelete(game: VideogameClass){
+  //   this.dataServ.removeGames(game);
+  // }
+
   manageGameEmission(game: VideogameClass){
-    this.refreshArray();
+    this.dataServ.refreshArray();
   }
 
   orderByName(){

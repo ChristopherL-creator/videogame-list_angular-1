@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
-  getTodosFromDb(){
+  getGamesFromDb(){
     const url = 'https://628b2f687886bbbb37b2139d.mockapi.io/games'
     return this.http.get<VideogameClass[]>(url).pipe(
       map(dbObjects => this.convertToGameClass(dbObjects))
@@ -19,7 +19,7 @@ export class ApiService {
     }
 
     convertToGameClass(dbObjectArray: any){
-      const gamesArray = []
+      const gamesArray = [];
       for (const dbObject of dbObjectArray) {
         const newGame = VideogameClass.fromGameObj(dbObject)
         gamesArray.push(newGame)
@@ -28,6 +28,6 @@ export class ApiService {
     }
 
     fetchData(){
-      return fetch('https://628b2f687886bbbb37b2139d.mockapi.io/games')
+      // return fetch('https://628b2f687886bbbb37b2139d.mockapi.io/games')
     }
 }

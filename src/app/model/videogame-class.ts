@@ -1,5 +1,6 @@
 export class VideogameClass {
 
+    id?: string;
     name: string;
     publicationDate: number;
     genreGame: VideogameGenre;
@@ -32,6 +33,7 @@ export class VideogameClass {
 
     static fromGameObj(dbObject: any){
         const game = new VideogameClass(dbObject.name, dbObject.publicationDate, dbObject.genreGame, dbObject.softwareHouse, dbObject.isInProd )
+        game.id = dbObject.id;
         return game
     }
 }
