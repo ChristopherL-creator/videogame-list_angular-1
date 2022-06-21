@@ -33,8 +33,8 @@ export class AppComponent implements OnInit{
     //}
   }
 
-  changeGameCard(){
-    return this.changeCard()
+  changeCard(){
+
   };
 
   orderByYear(){
