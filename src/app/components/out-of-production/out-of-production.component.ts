@@ -29,15 +29,11 @@ export class OutOfProductionComponent implements OnInit {
     this.dataServ.removeGames(game);
   }
 
-  refreshArray(){
-    // this.videogames = this.dataServ.getOutOfProd();
-  }
+  refreshArray(){ }
 
   orderByName(){
     this.videogames.sort(VideogameClass.compareByName);
   }
 
-  orderByDate(){
-    this.videogames.sort(VideogameClass.compareByDate);
-  }
+
 }

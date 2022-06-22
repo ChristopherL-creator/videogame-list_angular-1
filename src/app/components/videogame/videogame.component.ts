@@ -17,12 +17,7 @@ export class VideogameComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  static changeCard(){
-    // const card = document.getElementById("card-game");
-    // if (card) {
-    //   card.style.backgroundImage = "url('./assets/pictures/coffee-pattern.jpg')";
-    // }
-  }
+  static changeCard(){}
 
   isOutOfProd(){
     this.game?.isOutOfProd();

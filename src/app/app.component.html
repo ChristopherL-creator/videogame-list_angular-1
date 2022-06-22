@@ -1,16 +1,7 @@
 <h1>{{title}}</h1>
 
-<!-- <div class="game-card" *ngFor="let game of videoGamesArray">
-  <span>Title: {{game.name}}</span>
-  <span>Publication date: {{game.publicationDate}}</span>
-  <span>Genre: {{game.genre}}</span>
-  <span>Developer(s): {{game.softwareHouse}}</span>
+<button (click)="toBoomerMode()">*#*CoFeE!!*#*</button> 
+<a routerLink="/available" >In Production</a> 
+<a routerLink="/unavailable" >Out of Production</a>
 
-</div> -->
-<!-- <button id="boomer-btn" class="boomer-button" (click)="toBoomerMode(); changeCard()">*#*CoFeE!!*#*</button> -->
-
-<app-videogame-list></app-videogame-list>
-
-<h2>Out of Production Videogames</h2>
-<app-out-of-production></app-out-of-production>
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

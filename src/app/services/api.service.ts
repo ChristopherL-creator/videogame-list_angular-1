@@ -18,16 +18,12 @@ export class ApiService {
       );
     }
 
-    convertToGameClass(dbObjectArray: any){
+    convertToGameClass(dbObjectArray: any[]){
       const gamesArray = [];
       for (const dbObject of dbObjectArray) {
         const newGame = VideogameClass.fromGameObj(dbObject)
         gamesArray.push(newGame)
       }
       return gamesArray
-    }
-
-    fetchData(){
-      // return fetch('https://628b2f687886bbbb37b2139d.mockapi.io/games')
     }
 }

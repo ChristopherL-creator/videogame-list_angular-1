@@ -18,6 +18,9 @@ export class VideogameClass {
     get genre(): string{
         return getGenreString(this.genreGame);
     }
+    get creationDate(): Date{
+        return new Date(this.publicationDate);
+    }
 
     isOutOfProd(): void{
       this.isInProd = false;

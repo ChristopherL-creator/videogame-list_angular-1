@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, pipe } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { VideogameClass } from '../model/videogame-class';
 import { ApiService } from './api.service';
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VideogameClass } from 'src/app/model/videogame-class';
 import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
@@ -10,7 +10,6 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class VideogameListComponent implements OnInit {
 
-  // @Input() videogames: VideogameClass[];
   videogames: VideogameClass[] = [];
 
   constructor(private dataServ: DataService, private apiServ: ApiService) {
@@ -21,25 +20,20 @@ export class VideogameListComponent implements OnInit {
   }
 
   refreshArray(){
-    // this.videogames = this.dataServ.getInProd();
   }
 
   ngOnInit(): void {
   }
 
-  // manageGameDelete(game: VideogameClass){
-  //   this.dataServ.removeGames(game);
-  // }
-
   manageGameEmission(game: VideogameClass){
     this.dataServ.refreshArray();
+  } 
+
+  manageGameDelete(game: VideogameClass) { 
+    this.dataServ.removeGames(game);
   }
 
   orderByName(){
     this.videogames.sort(VideogameClass.compareByName);
-  }
-
-  orderByDate(){
-    this.videogames.sort(VideogameClass.compareByDate);
   }
 }
