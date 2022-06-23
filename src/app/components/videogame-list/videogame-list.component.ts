@@ -25,11 +25,14 @@ export class VideogameListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  manageGameEmission(game: VideogameClass){
-    this.dataServ.refreshArray();
-  } 
+  manageGameCompleted(game: VideogameClass): void{
+    this.dataServ.completeGames(game).subscribe({
+      next: res => console.log('result', res),
+      error: err => console.log(err)
+    });
+  }
 
-  manageGameDelete(game: VideogameClass) { 
+  manageGameDelete(game: VideogameClass) {
     this.dataServ.removeGames(game);
   }
 

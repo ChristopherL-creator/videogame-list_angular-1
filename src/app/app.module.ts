@@ -8,18 +8,22 @@ import { AppComponent } from './app.component';
 import { VideogameListComponent } from './components/videogame-list/videogame-list.component';
 import { VideogameComponent } from './components/videogame/videogame.component';
 import { OutOfProductionComponent } from './components/out-of-production/out-of-production.component';
+import { GameDetailComponent } from './components/game-detail/game-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     VideogameListComponent,
     VideogameComponent,
-    OutOfProductionComponent
+    OutOfProductionComponent,
+    GameDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

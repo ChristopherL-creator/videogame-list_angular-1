@@ -1,0 +1,15 @@
+<div  *ngIf="game">
+  <div>
+      <span>Name:</span>
+      <input type="text" [(ngModel)]="game.name">
+  </div>
+  <div>
+      <span>Genre:</span>
+      <input type="text" [(ngModel)]="game.genreGame">
+  </div>
+  <div>
+      <span>Developer(s):</span>
+      <input type="text" [(ngModel)]="devString">
+  </div>
+  <button [disabled]="!game.name" (click)="saveGame()">Save</button>
+</div>

@@ -30,13 +30,36 @@ export class DataService {
     );
   }
 
-  refreshArray(){
+  completeGames(game: VideogameClass): Observable<VideogameClass>{
     const newArray = [...this.gamesArray.value];
     this.gamesArray.next(newArray);
+    return this.apiServ.putGame(game);
   }
 
-  removeGames(game: VideogameClass): void{
+  removeGames(game: VideogameClass): Observable<VideogameClass>{
     const newArray = this.gamesArray.value.filter(g => g !== game);
     this.gamesArray.next(newArray);
+    return this.apiServ.deleteGame(game.id!);
+  }
+
+  saveGame(game: VideogameClass){
+    if (game.id) {
+      return this.apiServ.putGame(game);
+    } else {
+      return this.apiServ.postGame(game).pipe(
+        map(game => {
+          const newArray = [...this.gamesArray.value];
+          newArray.push(game);
+          this.gamesArray.next(newArray);
+          return game;
+        })
+      );
+    }
+  }
+
+  getGameById(id: string): Observable<VideogameClass | undefined>{
+    return this.gamesArray.pipe(
+      map(array => array.find(g => g.id === id))
+    )
   }
 }

@@ -12,6 +12,7 @@ export class OutOfProductionComponent implements OnInit {
   videogames: VideogameClass[] = [];
 
   constructor(private dataServ: DataService) {
+
     dataServ.getOutOfProd().subscribe({
       next: games => this.videogames = games,
       error: err => console.log(err)
@@ -21,12 +22,11 @@ export class OutOfProductionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  manageGameEmission(game: VideogameClass){
-    this.refreshArray();
-  }
-
   manageGameDelete(game: VideogameClass){
-    this.dataServ.removeGames(game);
+    this.dataServ.removeGames(game).subscribe({
+      next: res => console.log('result', res),
+      error: err => console.log(err)
+    });
   }
 
   refreshArray(){ }

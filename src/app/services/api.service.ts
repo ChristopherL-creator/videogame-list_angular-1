@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { VideogameClass } from '../model/videogame-class';
 
 @Injectable({
@@ -8,15 +8,47 @@ import { VideogameClass } from '../model/videogame-class';
 })
 export class ApiService {
 
+  private readonly BASE_URL = 'https://628b2f687886bbbb37b2139d.mockapi.io/games';
+
   constructor(private http: HttpClient) { }
 
 
   getGamesFromDb(){
-    const url = 'https://628b2f687886bbbb37b2139d.mockapi.io/games'
-    return this.http.get<VideogameClass[]>(url).pipe(
+    return this.http.get<VideogameClass[]>(this.BASE_URL).pipe(
       map(dbObjects => this.convertToGameClass(dbObjects))
       );
     }
+
+  deleteGame(id: string): Observable<any>{
+
+    const url = this.BASE_URL + '/' + id;
+
+    return this.http.delete<any>(url);
+  }
+
+  putGame(game: VideogameClass): Observable<VideogameClass>{
+
+    const url = this.BASE_URL + '/' + game.id;
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put<VideogameClass>(url, VideogameClass, httpOptions);
+  }
+
+  postGame(game: VideogameClass): Observable<VideogameClass>{
+
+    const url = this.BASE_URL + '/' + game.id;
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post<VideogameClass>(url, VideogameClass, httpOptions);
+  }
 
     convertToGameClass(dbObjectArray: any[]){
       const gamesArray = [];
