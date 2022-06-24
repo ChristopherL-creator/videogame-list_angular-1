@@ -11,5 +11,9 @@
       <span>Developer(s):</span>
       <input type="text" [(ngModel)]="devString">
   </div>
+  <div>
+    <span>Publication Date:</span>
+    <span>{{game.publicationDate}}</span>
+</div>
   <button [disabled]="!game.name" (click)="saveGame()">Save</button>
 </div>

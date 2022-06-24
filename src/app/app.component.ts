@@ -13,10 +13,18 @@ export class AppComponent implements OnInit{
   constructor(){
   }
 
+  get publicationDate(): Date {
+    throw new Error('Method not implemented.');
+  }
+
   ngOnInit(): void {
 
   }
 
+  getCorrectDate(timestamp: number): Date{
+    const milliseconds = timestamp * 1000;
+    return new Date(milliseconds);
+  }
 
   toBoomerMode(): void {
       const body = document.getElementById("change-body");

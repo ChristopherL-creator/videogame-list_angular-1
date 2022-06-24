@@ -1,5 +1,6 @@
 <div id="card-game" *ngIf="game" class="game-card" >
     <span>Title: {{game.name}}</span>
+    <span>Title: {{game.publicationDate}}</span>
     <a routerLink="/game/{{game.id}}">Details</a>
     <span>Genre: {{game.genre}}</span>
     <span>Developer(s): {{game.softwareHouse}}</span>

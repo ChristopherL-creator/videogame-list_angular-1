@@ -35,7 +35,7 @@ export class ApiService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.put<VideogameClass>(url, VideogameClass, httpOptions);
+    return this.http.put<VideogameClass>(url, VideogameClass.toDbObj(game), httpOptions);
   }
 
   postGame(game: VideogameClass): Observable<VideogameClass>{
@@ -47,7 +47,9 @@ export class ApiService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.post<VideogameClass>(url, VideogameClass, httpOptions);
+    return this.http.post<VideogameClass>(this.BASE_URL, VideogameClass.toDbObj(game), httpOptions).pipe(
+      map(gameObj => VideogameClass.fromGameObj(gameObj))
+    );
   }
 
     convertToGameClass(dbObjectArray: any[]){

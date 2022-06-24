@@ -39,4 +39,9 @@ export class VideogameListComponent implements OnInit {
   orderByName(){
     this.videogames.sort(VideogameClass.compareByName);
   }
+
+  orderByDate(){
+    this.videogames.sort(VideogameClass.compareByDate);
+  }
+
 }

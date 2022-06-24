@@ -35,5 +35,8 @@ export class OutOfProductionComponent implements OnInit {
     this.videogames.sort(VideogameClass.compareByName);
   }
 
+  orderByDate(){
+    this.videogames.sort(VideogameClass.compareByDate);
+  }
 
 }

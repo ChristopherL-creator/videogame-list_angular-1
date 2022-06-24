@@ -2,14 +2,14 @@ export class VideogameClass {
 
     id?: string;
     name: string;
-    publicationDate: number;
+    private readonly _publicationDate: number;
     genreGame: VideogameGenre;
     softwareHouse: string[];
     isInProd: boolean;
 
-    constructor(name: string, publicationDate: number, genreGame: VideogameGenre, softwareHouse: string[], isInProd: boolean = true){
+    constructor(name: string, publicationDate: Date = new Date(), genreGame: VideogameGenre, softwareHouse: string[], isInProd: boolean = true){
         this.name = name;
-        this.publicationDate = publicationDate;
+        this._publicationDate = publicationDate.getTime();
         this.genreGame = genreGame;
         this.softwareHouse = softwareHouse;
         this.isInProd = isInProd;
@@ -18,8 +18,8 @@ export class VideogameClass {
     get genre(): string{
         return getGenreString(this.genreGame);
     }
-    get creationDate(): Date{
-        return new Date(this.publicationDate);
+    get publicationDate(): Date{
+        return new Date(this._publicationDate);
     }
 
     isOutOfProd(): void{
@@ -31,14 +31,25 @@ export class VideogameClass {
     }
 
     static compareByDate(a: VideogameClass, b: VideogameClass){
-        return a.publicationDate - b.publicationDate;
+        return a._publicationDate - b._publicationDate;
     }
 
     static fromGameObj(dbObject: any){
-        const game = new VideogameClass(dbObject.name, dbObject.publicationDate, dbObject.genreGame, dbObject.softwareHouse, dbObject.isInProd )
+        const game = new VideogameClass(dbObject.name, new Date(dbObject.publicationDate * 1000), dbObject.genreGame, dbObject.softwareHouse, dbObject.isInProd )
         game.id = dbObject.id;
         return game
     }
+
+    static toDbObj(game: VideogameClass): any{
+      const dbObject: any = {};
+      dbObject.id = game.id;
+      dbObject.name = game.name;
+      dbObject.publicationDate = game._publicationDate;
+      dbObject.genre = game.genre;
+      dbObject.softwareHouse = game.softwareHouse;
+      dbObject.isInProd = game.isInProd;
+      return dbObject;
+  }
 }
 
 export enum VideogameGenre {
