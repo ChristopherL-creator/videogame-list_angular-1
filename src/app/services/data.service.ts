@@ -11,6 +11,7 @@ export class DataService {
   gamesArray: BehaviorSubject<VideogameClass[]> = new BehaviorSubject<VideogameClass[]>([]);
 
   constructor(private apiServ: ApiService) {
+
     this.apiServ.getGamesFromDb().subscribe({
       next: result => this.gamesArray.next(result),
       error: err => console.log(err)

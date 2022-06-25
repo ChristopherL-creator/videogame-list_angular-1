@@ -8,7 +8,7 @@ import { VideogameClass } from '../model/videogame-class';
 })
 export class ApiService {
 
-  private readonly BASE_URL = 'https://628b2f687886bbbb37b2139d.mockapi.io/games';
+  private readonly BASE_URL = 'https://628d3321a3fd714fd040dac4.mockapi.io/games';
 
   constructor(private http: HttpClient) { }
 
@@ -40,8 +40,6 @@ export class ApiService {
 
   postGame(game: VideogameClass): Observable<VideogameClass>{
 
-    const url = this.BASE_URL + '/' + game.id;
-
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -58,6 +56,6 @@ export class ApiService {
         const newGame = VideogameClass.fromGameObj(dbObject)
         gamesArray.push(newGame)
       }
-      return gamesArray
+      return gamesArray;
     }
 }

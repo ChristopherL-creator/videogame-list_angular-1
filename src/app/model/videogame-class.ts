@@ -7,7 +7,7 @@ export class VideogameClass {
     softwareHouse: string[];
     isInProd: boolean;
 
-    constructor(name: string, publicationDate: Date = new Date(), genreGame: VideogameGenre, softwareHouse: string[], isInProd: boolean = true){
+    constructor(name: string, publicationDate: Date = new Date() || 0, genreGame: VideogameGenre, softwareHouse: string[], isInProd: boolean = true){
         this.name = name;
         this._publicationDate = publicationDate.getTime();
         this.genreGame = genreGame;
