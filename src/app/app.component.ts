@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VideogameClass } from './model/videogame-class';
 
 
 @Component({
@@ -13,17 +14,12 @@ export class AppComponent implements OnInit{
   constructor(){
   }
 
-  get publicationDate(): Date {
+  get publicationDate(): number {
     throw new Error('Method not implemented.');
   }
 
   ngOnInit(): void {
 
-  }
-
-  getCorrectDate(timestamp: number): Date{
-    const milliseconds = timestamp * 1000;
-    return new Date(milliseconds);
   }
 
   toBoomerMode(): void {

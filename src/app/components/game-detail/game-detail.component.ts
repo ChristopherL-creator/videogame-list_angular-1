@@ -26,9 +26,9 @@ export class GameDetailComponent implements OnInit {
         },
         error: err => console.log(err)
       });
-    } /*else {
-      this.game = new VideogameClass('');
-    }*/
+    } else {
+      this.game = new VideogameClass('',0,0,[]);
+    }
   }
 
   saveGame(): void{
