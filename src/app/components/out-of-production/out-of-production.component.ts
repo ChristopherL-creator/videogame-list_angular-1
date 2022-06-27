@@ -23,6 +23,8 @@ export class OutOfProductionComponent implements OnInit {
   }
 
   manageGameDelete(game: VideogameClass){
+    console.log('pippo');
+    
     this.dataServ.removeGames(game).subscribe({
       next: res => console.log('result', res),
       error: err => console.log(err)

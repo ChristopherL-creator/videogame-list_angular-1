@@ -12,7 +12,7 @@ export class GameDetailComponent implements OnInit {
 
   game?: VideogameClass;
 
-  devString = '';
+  // devString = '';
 
   constructor(private route: ActivatedRoute, private dataServ: DataService) { }
 
@@ -21,8 +21,8 @@ export class GameDetailComponent implements OnInit {
     if (param) {
       this.dataServ.getGameById(param).subscribe({
         next: game => {
-          this.game = game,
-          this.devString = game? game.softwareHouse.join(', ') : '';
+          this.game = game;
+          // this.devString = game.softwareHouse;
         },
         error: err => console.log(err)
       });
@@ -34,11 +34,11 @@ export class GameDetailComponent implements OnInit {
   saveGame(): void{
     if (this.game) {
 
-      if (this.devString === '') {
-        this.game.softwareHouse = [];
-      } else {
-        this.game.softwareHouse = this.devString.split(' ');
-      }
+      // if (this.devString === '') {
+      //   this.game.softwareHouse = [];
+      // } else {
+      //   this.game.softwareHouse = this.devString.split(' ');
+      // }
 
       this.dataServ.saveGame(this.game).subscribe({
         next: game => console.log('game', game),
